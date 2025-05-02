@@ -22,7 +22,7 @@ const App = () => {
 				<Login setToken={setToken} />
 			) : (
 				<>
-					<Navbar />
+					<Navbar setToken={setToken} />
 
 					<hr />
 					<div className="flex w-full">
@@ -32,14 +32,17 @@ const App = () => {
 								<Route
 									path="/add-product"
 									element={<AddProduct />}
+									token={token}
 								></Route>
 								<Route
 									path="/list"
 									element={<ListProducts />}
+									token={token}
 								></Route>
 								<Route
 									path="/orders"
 									element={<Orders />}
+									token={token}
 								></Route>
 							</Routes>
 						</div>
