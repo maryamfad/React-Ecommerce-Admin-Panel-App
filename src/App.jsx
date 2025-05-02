@@ -6,12 +6,14 @@ import AddProduct from "./pages/AddProduct";
 import ListProducts from "./pages/ListProducts";
 import Orders from "./pages/Orders";
 import Login from "./components/Login";
+import { ToastContainer } from "react-toastify";
 const App = () => {
 	const [token, setToken] = useState("");
 	return (
 		<div className="bg-gray-50 min-h-screen">
+			<ToastContainer />
 			{token === "" ? (
-				<Login />
+				<Login setToken={setToken} />
 			) : (
 				<>
 					<Navbar />
