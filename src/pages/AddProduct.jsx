@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../constants";
+import { toast } from "react-toastify";
 
 const AddProduct = ({ token }) => {
 	const [image1, setImage1] = useState(false);
@@ -37,9 +38,23 @@ const AddProduct = ({ token }) => {
 				formData,
 				{ headers: { token } }
 			);
-			console.log(response.data);
+			if (response.data.success) {
+				toast.success(response.data.message);
+				setName("");
+				setDescription("");
+				setImage1(false);
+				setImage2(false);
+				setImage3(false);
+				setImage4(false);
+				setPrice(0);
+				setSizes([]);
+				setBestseller(false);
+			} else {
+				toast.error(response.data.message);
+			}
 		} catch (error) {
 			console.log(error);
+			toast.error(error.message);
 		}
 	};
 	return (
