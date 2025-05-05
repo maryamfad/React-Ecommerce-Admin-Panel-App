@@ -31,18 +31,16 @@ const App = () => {
 							<Routes>
 								<Route
 									path="/add-product"
-									element={<AddProduct />}
+									element={<AddProduct token={token} />}
 									token={token}
 								></Route>
 								<Route
 									path="/list"
-									element={<ListProducts />}
-									token={token}
+									element={<ListProducts token={token} />}
 								></Route>
 								<Route
 									path="/orders"
-									element={<Orders />}
-									token={token}
+									element={<Orders token={token} />}
 								></Route>
 							</Routes>
 						</div>
